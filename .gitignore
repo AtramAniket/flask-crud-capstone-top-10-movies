@@ -1,3 +1,11 @@
+# The environment file
 .env
+
+# python virtual environment configs and packages
 .venv
-__pychache__
+
+# cached files
+__pycache__/
+
+# Database
+instance/
