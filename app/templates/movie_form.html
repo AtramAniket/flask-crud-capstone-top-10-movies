@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{%block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="content d-flex flex-column justify-content-center align-items-center p-4">
+	{% if form_heading %}
+		<h1 class="display-3 mb-3">{{form_heading}}</h1>
+	{% endif %}
+  <form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="row mb-2">
+    	 <div class="col">
+    	{{ form.title.label(class="form-label") }} 
+    	{{ form.title(class="form-control") }}
+    	{% if form.title.errors %}
+            <div class="text-danger">
+                {% for error in form.title.errors %}
+                    {{ error }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+		</div>
+    </div>
+    <div class="row mb-2">
+		 <div div class="col">
+			{{ form.description.label(class="form-label") }} 
+			{{ form.description(class="form-control") }}
+			{% if form.description.errors %}
+		        <div class="text-danger">
+		            {% for error in form.description.errors %}
+		                {{ error }}<br>
+		            {% endfor %}
+		        </div>
+		    {% endif %}
+	    </div>
+    </div>
+    <div class="row mb-2">
+    	<div div class="col">
+			{{ form.img_url.label(class="form-label") }}
+			{{ form.img_url(class="form-control") }}
+			{% if form.img_url.errors %}
+		        <div class="form-text text-danger">
+		            {% for error in form.img_url.errors %}
+		                {{ error }}<br>
+		            {% endfor %}
+		        </div>
+		    {% endif %}
+    	</div>
+    </div>
+    <div class="row mb-2">
+		<div div class="col">
+	    	{{ form.year.label(class="form-label") }} 
+	    	{{ form.year(class="form-control") }}
+	    	{% if form.year.errors %}
+			    <div class="text-danger">
+			        {% for error in form.year.errors %}
+			            {{ error }}<br>
+			        {% endfor %}
+			    </div>
+	        {% endif %}
+	    </div>
+	    <div div class="col">
+	    	{{ form.rating.label(class="form-label") }}
+	    	{{ form.rating(class="form-control") }}
+			{% if form.rating.errors %}
+		        <div class="text-danger">
+		            {% for error in form.rating.errors %}
+		                {{ error }}<br>
+		            {% endfor %}
+		        </div>
+		    {% endif %}
+		</div>
+	    <div div class="col">
+    	{{ form.ranking.label(class="form-label") }}
+    	{{ form.ranking(class="form-control") }}
+		{% if form.ranking.errors %}
+	        <div class="text-danger">
+	            {% for error in form.ranking.errors %}
+	                {{ error }}<br>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+    	</div>
+    </div>
+    <div class="row mb-2">
+    	<div div class="col">
+	    	{{ form.review.label(class="form-label") }}
+	    	{{ form.review(class="form-control", rows=6, placeholder="Write your review here...", style="resize:none;") }}
+			{% if form.review.errors %}
+		        <div class="text-danger">
+		            {% for error in form.review.errors %}
+		                {{ error }}<br>
+		            {% endfor %}
+		        </div>
+		    {% endif %}
+    	</div>
+    </div>
+    <div div class="my-4 text-center">{{ form.submit(class="btn btn-success btn-md") }}</div>
+</form>
+</div>
+{% endblock %}
